@@ -1,0 +1,12 @@
+Modal/Seat.class
+Repositories/IbaggageRepository.class
+Repositories/IUnitOfWork.class
+factories/CheckInFactory.class
+Modal/CheckIn.class
+Events/CheckInCreado.class
+Modal/Passenger.class
+Modal/Baggage.class
+factories/ICheckInFactory.class
+Modal/valueObject/DescripcionEstado.class
+Modal/valueObject/CodigoSeguridad.class
+Repositories/IcheckInRepository.class

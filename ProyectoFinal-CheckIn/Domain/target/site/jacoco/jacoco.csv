@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Domain,Modal.valueObject,DescripcionEstado,0,15,0,2,0,5,0,2,0,1
+Domain,Modal.valueObject,CodigoSeguridad,0,12,0,0,0,4,0,1,0,1
+Domain,Events,CheckInCreado,0,11,0,0,0,4,0,1,0,1
+Domain,factories,CheckInFactory,0,11,0,0,0,2,0,2,0,2
+Domain,Modal,Baggage,0,39,0,0,0,17,0,8,0,8
+Domain,Modal,Passenger,0,39,0,0,0,17,0,8,0,8
+Domain,Modal,Seat,3,0,0,0,1,0,1,0,1,0
+Domain,Modal,CheckIn,7,87,0,0,3,31,2,14,2,14

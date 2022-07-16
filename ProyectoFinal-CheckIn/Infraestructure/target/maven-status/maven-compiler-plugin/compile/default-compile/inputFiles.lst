@@ -1,0 +1,6 @@
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Infraestructure/src/main/java/EF/UnitOfWork.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Infraestructure/src/main/java/EF/Contexts/MongoDb/WriteDbContext.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Infraestructure/src/main/java/EF/Repository/CheckInRepository.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Infraestructure/src/main/java/EF/Repository/BaggageRepository.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Infraestructure/src/main/java/EF/Contexts/IWriteDbContext.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Infraestructure/src/main/java/ExtensionsInfrastructure.java

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetCheckInAllHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Aplication</a> &gt; <a href="index.source.html" class="el_package">UseCases.Queries.GetAll</a> &gt; <span class="el_source">GetCheckInAllHandler.java</span></div><h1>GetCheckInAllHandler.java</h1><pre class="source lang-java linenums">package UseCases.Queries.GetAll;
+
+import Modal.CheckIn;
+import Repositories.IcheckInRepository;
+import fourteam.http.Exception.HttpException;
+import fourteam.mediator.RequestHandler;
+import java.util.List;
+
+public class GetCheckInAllHandler implements RequestHandler&lt;GetCheckInAllQuery, List&lt;CheckIn&gt;&gt;{
+
+    private IcheckInRepository _checkInRepository;
+
+<span class="nc" id="L13">    public GetCheckInAllHandler(IcheckInRepository icheckInRepository) {</span>
+<span class="nc" id="L14">        this._checkInRepository = icheckInRepository;</span>
+<span class="nc" id="L15">    }</span>
+
+    @Override
+    public List&lt;CheckIn&gt; handle(GetCheckInAllQuery request) throws HttpException {
+<span class="nc" id="L19">        return _checkInRepository.GetAll();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

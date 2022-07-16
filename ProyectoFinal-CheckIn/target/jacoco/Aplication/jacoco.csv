@@ -1,0 +1,15 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Aplication,default,Extensions,17,0,0,0,8,0,2,0,2,0
+Aplication,Services,CheckInServices,0,62,0,10,0,11,0,7,0,2
+Aplication,UseCases.Command.CheckIn.Edit,EditCheckInCommand,0,12,0,0,0,4,0,1,0,1
+Aplication,UseCases.Command.CheckIn.Edit,EditCheckInHandler,0,40,0,2,0,11,0,3,0,2
+Aplication,UseCases.Command.CheckIn.Delete,DeleteCheckInCommand,12,0,0,0,4,0,1,0,1,0
+Aplication,UseCases.Command.CheckIn.Delete,DeleteCheckInHandler,33,0,2,0,9,0,3,0,2,0
+Aplication,UseCases.Queries.GetAll,GetCheckInAllQuery,3,0,0,0,2,0,1,0,1,0
+Aplication,UseCases.Queries.GetAll,GetCheckInAllHandler,10,0,0,0,4,0,2,0,2,0
+Aplication,UseCases.Queries.GetById,GetCheckInByIdHandler,6,77,1,3,3,21,1,3,0,2
+Aplication,UseCases.Queries.GetById,GetCheckInByIdQuery,0,6,0,0,0,3,0,1,0,1
+Aplication,UseCases.Command.CheckIn.Create,CrearCheckInHandler,0,64,0,2,0,15,0,3,0,2
+Aplication,UseCases.Command.CheckIn.Create,CrearCheckInCommand,0,10,0,0,0,4,0,1,0,1
+Aplication,Dto,BaggageDto,0,24,0,0,0,11,0,7,0,7
+Aplication,Dto,CheckInDto,0,52,0,0,0,23,0,15,0,15

@@ -1,0 +1,12 @@
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Repositories/IbaggageRepository.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Repositories/IUnitOfWork.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/factories/CheckInFactory.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Modal/valueObject/CodigoSeguridad.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Repositories/IcheckInRepository.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Events/CheckInCreado.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Modal/Seat.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Modal/Baggage.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/factories/ICheckInFactory.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Modal/Passenger.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Modal/CheckIn.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Domain/src/main/java/Modal/valueObject/DescripcionEstado.java

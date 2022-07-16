@@ -1,0 +1,10 @@
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/core/DomainEvent.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/rule/NotNullRule.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/rule/StringNotNullOrEmptyRule.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/core/Entity.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/SharedKernel.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/core/IRepository.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/core/BussinessRuleValidateExeption.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/core/BussinessRule.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/core/ValueObject.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/SharedKernel/src/main/java/core/AggregateRoot.java

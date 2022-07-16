@@ -1,0 +1,8 @@
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/Dto/CheckInDto_Test.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/UseCases/Command/CheckIn/Create/CrearCheckInCommand_Test.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/Services/CheckInServices_Test.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/UseCases/Command/CheckIn/Edit/EditCheckInHandler_Test.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/Dto/BaggageDto_Test.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/UseCases/Queries/GetById/GetCheckInById_Test.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/UseCases/Queries/GetById/GetCheckInByIdHandler_Test.java
+/Users/edsonmamani/Documents/dmsCheckIn/ProyectoFinal-CheckIn/Aplication/src/test/java/Application/UseCases/Command/CheckIn/Create/CrearCheckInHandler_Test.java
