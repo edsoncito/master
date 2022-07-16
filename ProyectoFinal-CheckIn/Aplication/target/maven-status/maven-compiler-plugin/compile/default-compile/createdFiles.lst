@@ -1,0 +1,9 @@
+Services/IcheckInService.class
+Extensions.class
+Dto/BaggageDto.class
+UseCases/Command/CheckIn/Edit/EditCheckInHandler.class
+UseCases/Command/CheckIn/Delete/DeleteCheckInHandler.class
+UseCases/Command/CheckIn/Edit/EditCheckInCommand.class
+Services/CheckInServices.class
+UseCases/Command/CheckIn/Delete/DeleteCheckInCommand.class
+Dto/CheckInDto.class

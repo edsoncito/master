@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Infraestructure" />
+        <module name="WebApi" />
+        <module name="SharedKernel" />
+        <module name="FourTeam" />
+        <module name="Fourteam" />
+        <module name="Domain" />
+        <module name="Aplication" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Application" target="11" />
+      <module name="Test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetCheckInByIdHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Aplication</a> &gt; <a href="index.source.html" class="el_package">UseCases.Queries</a> &gt; <span class="el_source">GetCheckInByIdHandler.java</span></div><h1>GetCheckInByIdHandler.java</h1><pre class="source lang-java linenums">package UseCases.Queries;
+
+import Dto.CheckInDto;
+import Dto.BaggageDto;
+import Modal.CheckIn;
+import Repositories.IcheckInRepository;
+import fourteam.mediator.RequestHandler;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GetCheckInByIdHandler implements RequestHandler&lt;GetCheckInByIdQuery, CheckInDto&gt; {
+
+    private IcheckInRepository _IcheckInRepository;
+
+<span class="nc" id="L15">    public GetCheckInByIdHandler(IcheckInRepository icheckInRepository) {</span>
+<span class="nc" id="L16">        this._IcheckInRepository = icheckInRepository;</span>
+<span class="nc" id="L17">    }</span>
+
+
+    @Override
+    public CheckInDto handle(GetCheckInByIdQuery request) {
+<span class="nc" id="L22">        CheckInDto checkInDto = new CheckInDto();</span>
+        try {
+<span class="nc" id="L24">        CheckIn checkIn = _IcheckInRepository.FindByKey(request.Key);</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if(checkIn == null) {</span>
+<span class="nc" id="L26">            return null;</span>
+        }
+<span class="nc" id="L28">        checkInDto.setEstadoPaciente(checkIn.getEstadoPaciente());</span>
+<span class="nc" id="L29">        checkInDto.setDescripcion(checkIn.getDescripcion());</span>
+<span class="nc" id="L30">        checkInDto.setAsiento(checkIn.getAsiento());</span>
+<span class="nc" id="L31">        List&lt;BaggageDto&gt; lista = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for (var item : checkIn.getEquipaje()) {</span>
+<span class="nc" id="L33">            BaggageDto equipajeDto = new BaggageDto();</span>
+<span class="nc" id="L34">            equipajeDto.setPesoEquipaje(item.getPesoEquipaje());</span>
+<span class="nc" id="L35">            equipajeDto.setNumeroEtiqueta(item.getNumeroEtiquta());</span>
+<span class="nc" id="L36">            equipajeDto.setDescripcion(item.getDescripcion());</span>
+<span class="nc" id="L37">            lista.add(equipajeDto);</span>
+<span class="nc" id="L38">        }</span>
+<span class="nc" id="L39">        checkInDto.setEquipajeDto(lista);</span>
+<span class="nc" id="L40">        checkInDto.setCodigoSeguridad(checkIn.getCodigoSeguridad());</span>
+<span class="nc" id="L41">        }catch (Exception e){</span>
+<span class="nc" id="L42">            System.out.println(e);</span>
+<span class="nc" id="L43">        }</span>
+<span class="nc" id="L44">        return checkInDto;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
