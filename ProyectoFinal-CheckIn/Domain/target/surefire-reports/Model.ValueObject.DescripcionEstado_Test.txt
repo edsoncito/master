@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: Model.ValueObject.DescripcionEstado_Test
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! - in Model.ValueObject.DescripcionEstado_Test
-Fail(Model.ValueObject.DescripcionEstado_Test)  Time elapsed: 0.031 s  <<< ERROR!
-core.BussinessRuleValidateExeption
-	at Model.ValueObject.DescripcionEstado_Test.Fail(DescripcionEstado_Test.java:21)
-
