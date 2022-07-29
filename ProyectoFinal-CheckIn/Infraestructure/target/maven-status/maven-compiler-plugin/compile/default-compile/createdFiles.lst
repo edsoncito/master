@@ -1,6 +1,0 @@
-EF/Repository/BaggageRepository.class
-EF/UnitOfWork.class
-EF/Contexts/IWriteDbContext.class
-ExtensionsInfrastructure.class
-EF/Contexts/MongoDb/WriteDbContext.class
-EF/Repository/CheckInRepository.class
