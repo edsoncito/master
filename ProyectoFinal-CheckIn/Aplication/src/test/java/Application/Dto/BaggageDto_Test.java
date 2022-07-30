@@ -7,9 +7,8 @@ import org.junit.Test;
 
 public class BaggageDto_Test {
 
-    @Test
-    public void CheckPropertiesValid() {
-
+  @Test
+  public void CheckPropertiesValid() {
     Double PesoEquipaje = 23.3;
     String NumeroEtiqueta = "sdfsdfw";
     String Descripcion = "sdsfdsdf";
@@ -27,6 +26,5 @@ public class BaggageDto_Test {
     Assert.assertEquals(PesoEquipaje, objBaggageDto.getPesoEquipaje());
     Assert.assertEquals(Descripcion, objBaggageDto.getDescripcion());
     Assert.assertEquals(NumeroEtiqueta, objBaggageDto.getNumeroEtiqueta());
-
-    }
+  }
 }
