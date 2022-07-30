@@ -1,7 +1,7 @@
 ./db
 *.husky
 */node_modules
-
+*db
 # OSX
 #
 .DS_Store
