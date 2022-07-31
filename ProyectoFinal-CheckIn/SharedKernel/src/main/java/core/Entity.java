@@ -5,40 +5,40 @@ import java.util.List;
 
 public abstract class Entity<TId> {
 
-	public TId key;
-	public List<DomainEvent> domainEvents;
+  public TId key;
+  public List<DomainEvent> domainEvents;
 
-	public List<DomainEvent> getDomainEvents() {
-		return domainEvents;
-	}
+  public List<DomainEvent> getDomainEvents() {
+    return domainEvents;
+  }
 
-	public Entity() {
-		domainEvents = new ArrayList<DomainEvent>();
-	}
+  public Entity() {
+    domainEvents = new ArrayList<DomainEvent>();
+  }
 
-	public void addDomainEvent(DomainEvent event) {
-		domainEvents.add(event);
-	}
+  public void addDomainEvent(DomainEvent event) {
+    domainEvents.add(event);
+  }
 
-	public void clearDomainEvent() {
-		domainEvents.clear();
-	}
+  public void clearDomainEvent() {
+    domainEvents.clear();
+  }
 
-	public TId getKey() {
-		return key;
-	}
+  public TId getKey() {
+    return key;
+  }
 
-	protected void setKey(TId key) {
-		this.key = key;
-	}
+  protected void setKey(TId key) {
+    this.key = key;
+  }
 
-	protected void CheckRule(BussinessRule rule)
-		throws BussinessRuleValidateExeption {
-		if (rule == null) {
-			throw new IllegalArgumentException("Rule cannot be null");
-		}
-		if (!rule.IsValid()) {
-			throw new BussinessRuleValidateExeption(rule);
-		}
-	}
+  protected void CheckRule(BussinessRule rule)
+    throws BussinessRuleValidateExeption {
+    if (rule == null) {
+      throw new IllegalArgumentException("Rule cannot be null");
+    }
+    if (!rule.IsValid()) {
+      throw new BussinessRuleValidateExeption(rule);
+    }
+  }
 }
