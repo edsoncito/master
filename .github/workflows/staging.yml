@@ -36,7 +36,7 @@ jobs:
       run: cd ProyectoFinal-CheckIn && mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=edsoncito_master
 
   release:
-    needs: Build
+    needs: compilacion
     runs-on: ubuntu-latest
 
     steps:
