@@ -6,12 +6,12 @@ import java.util.UUID;
 
 public class CheckInCreado extends DomainEvent {
 
-	public UUID KeyCheckIn;
-	public String CodigoSeguridad;
+  public UUID KeyCheckIn;
+  public String CodigoSeguridad;
 
-	public CheckInCreado(UUID key, String codigoSeguridad) {
-		super(LocalDateTime.now());
-		KeyCheckIn = key;
-		CodigoSeguridad = codigoSeguridad.toString();
-	}
+  public CheckInCreado(UUID key, String codigoSeguridad) {
+    super(LocalDateTime.now());
+    KeyCheckIn = key;
+    CodigoSeguridad = codigoSeguridad.toString();
+  }
 }
