@@ -16,9 +16,6 @@ public class Extensions {
     IMediator.registerHandler(DeleteCheckInHandler.class);
     IMediator.registerHandler(CrearCheckInHandler.class);
     IMediator.registerHandler(GetCheckInAllHandler.class);
-    IServiceCollection.AddTransient(
-      ICheckInFactory.class,
-      CheckInFactory.class
-    );
+    IServiceCollection.AddTransient(ICheckInFactory.class, CheckInFactory.class);
   }
 }

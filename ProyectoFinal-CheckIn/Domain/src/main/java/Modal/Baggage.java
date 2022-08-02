@@ -11,11 +11,7 @@ public class Baggage extends Entity<UUID> {
 
   public Baggage() {}
 
-  public Baggage(
-    Double pesoEquipaje,
-    String numeroEtiqueta,
-    String descripcion
-  ) {
+  public Baggage(Double pesoEquipaje, String numeroEtiqueta, String descripcion) {
     key = UUID.randomUUID();
     PesoEquipaje = pesoEquipaje;
     NumeroEtiqueta = numeroEtiqueta;

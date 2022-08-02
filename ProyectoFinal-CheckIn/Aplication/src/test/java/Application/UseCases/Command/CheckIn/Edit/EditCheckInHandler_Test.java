@@ -20,9 +20,7 @@ import org.mockito.Mockito;
 public class EditCheckInHandler_Test {
 
   ICheckInFactory _checkInFactory = Mockito.mock(ICheckInFactory.class);
-  IcheckInRepository _checkInRepository = Mockito.mock(
-    IcheckInRepository.class
-  );
+  IcheckInRepository _checkInRepository = Mockito.mock(IcheckInRepository.class);
   IUnitOfWork _unitOfWork = Mockito.mock(IUnitOfWork.class);
 
   int Asiento = 33;
@@ -35,12 +33,7 @@ public class EditCheckInHandler_Test {
 
   @Test
   public void HandleCorrectly() throws HttpException {
-    CheckIn objCheckIn = new CheckIn(
-      CodigoSeguridad,
-      EstadoPaciente,
-      Descripcion,
-      Asiento
-    );
+    CheckIn objCheckIn = new CheckIn(CodigoSeguridad, EstadoPaciente, Descripcion, Asiento);
     when(_checkInRepository.FindByKey(any())).thenReturn(objCheckIn);
     EditCheckInHandler handler = new EditCheckInHandler(
       _checkInFactory,

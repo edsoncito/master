@@ -15,9 +15,7 @@ import org.mockito.Mockito;
 
 public class GetCheckInByIdHandler_Test {
 
-  IcheckInRepository icheckInRepository = Mockito.mock(
-    IcheckInRepository.class
-  );
+  IcheckInRepository icheckInRepository = Mockito.mock(IcheckInRepository.class);
 
   @Test
   public void HandleCorrectly() {
@@ -25,17 +23,10 @@ public class GetCheckInByIdHandler_Test {
     int Asiento = 33;
     Boolean EstadoPaciente = true;
     String Descripcion = "haskjhfaksjf";
-    CheckIn objCheckIn = new CheckIn(
-      CodigoSeguridad,
-      EstadoPaciente,
-      Descripcion,
-      Asiento
-    );
+    CheckIn objCheckIn = new CheckIn(CodigoSeguridad, EstadoPaciente, Descripcion, Asiento);
     objCheckIn.AgregarItem(3.2, "Sdfds", "asdasfasa");
     when(icheckInRepository.FindByKey(any())).thenReturn(objCheckIn);
-    GetCheckInByIdHandler handler = new GetCheckInByIdHandler(
-      icheckInRepository
-    );
+    GetCheckInByIdHandler handler = new GetCheckInByIdHandler(icheckInRepository);
     GetCheckInByIdQuery query = new GetCheckInByIdQuery(objCheckIn.getKey());
     CheckInDto resp = handler.handle(query);
 

@@ -20,19 +20,9 @@ public class CheckInFactory_Test {
     int Asiento = 33;
     Boolean EstadoPaciente = true;
     String Descripcion = "haskjhfaksjf";
-    CheckIn objCheckIn = new CheckIn(
-      CodigoSeguridad,
-      EstadoPaciente,
-      Descripcion,
-      Asiento
-    );
+    CheckIn objCheckIn = new CheckIn(CodigoSeguridad, EstadoPaciente, Descripcion, Asiento);
 
     CheckInFactory checkInFactory = new CheckInFactory();
-    CheckIn checkIn = checkInFactory.Create(
-      anyString(),
-      anyBoolean(),
-      anyString(),
-      anyInt()
-    );
+    CheckIn checkIn = checkInFactory.Create(anyString(), anyBoolean(), anyString(), anyInt());
   }
 }

@@ -13,12 +13,7 @@ public class CheckIn_Test {
     Boolean EstadoPaciente = true;
     String Descripcion = "haskjhfaksjf";
 
-    CheckIn objCheckIn = new CheckIn(
-      CodigoSeguridad,
-      EstadoPaciente,
-      Descripcion,
-      Asiento
-    );
+    CheckIn objCheckIn = new CheckIn(CodigoSeguridad, EstadoPaciente, Descripcion, Asiento);
     objCheckIn.AgregarItem(3.2, "Sdfds", "asdasfasa");
 
     CheckIn checkIn = new CheckIn();

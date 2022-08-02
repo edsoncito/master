@@ -24,16 +24,14 @@ public class CheckInController {
   }
 
   @GetMapping("/{key}")
-  public Response<CheckInDto> getByKey(
-    @PathVariable GetCheckInByIdQuery request
-  ) throws HttpException {
+  public Response<CheckInDto> getByKey(@PathVariable GetCheckInByIdQuery request)
+    throws HttpException {
     return _mediator.send(request);
   }
 
   @PostMapping("/registro")
-  public Response<CheckIn> register(
-    @RequestBody CrearCheckInCommand checkInCommand
-  ) throws HttpException {
+  public Response<CheckIn> register(@RequestBody CrearCheckInCommand checkInCommand)
+    throws HttpException {
     Response<CheckIn> obj = _mediator.send(checkInCommand);
     return obj;
   }
@@ -53,8 +51,7 @@ public class CheckInController {
   }
 
   @DeleteMapping("/{key}")
-  public Response<CheckIn> delete(@PathVariable DeleteCheckInCommand request)
-    throws HttpException {
+  public Response<CheckIn> delete(@PathVariable DeleteCheckInCommand request) throws HttpException {
     return _mediator.send(request);
   }
 }

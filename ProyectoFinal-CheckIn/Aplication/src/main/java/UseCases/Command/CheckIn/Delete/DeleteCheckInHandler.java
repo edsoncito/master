@@ -8,8 +8,7 @@ import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
 
-public class DeleteCheckInHandler
-  implements RequestHandler<DeleteCheckInCommand, CheckIn> {
+public class DeleteCheckInHandler implements RequestHandler<DeleteCheckInCommand, CheckIn> {
 
   private ICheckInFactory _checkInFactory;
   private IcheckInRepository _icheckInRepository;

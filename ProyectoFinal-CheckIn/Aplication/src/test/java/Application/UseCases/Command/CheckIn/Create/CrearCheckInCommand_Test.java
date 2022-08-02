@@ -18,8 +18,6 @@ public class CrearCheckInCommand_Test {
 
   @Test
   public void constructorIsPrivate() {
-    Assert.assertTrue(
-      CrearCheckInCommand.class.getConstructors()[0].canAccess(null)
-    );
+    Assert.assertTrue(CrearCheckInCommand.class.getConstructors()[0].canAccess(null));
   }
 }

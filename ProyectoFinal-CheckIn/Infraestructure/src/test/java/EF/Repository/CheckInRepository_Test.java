@@ -35,12 +35,7 @@ public class CheckInRepository_Test {
 
     IWriteDbContext bdTest = new WriteDbContext();
     CheckInRepository checkInRepository = new CheckInRepository(bdTest);
-    CheckIn objCheckIn = new CheckIn(
-      CodigoSeguridad,
-      EstadoPaciente,
-      Descripcion,
-      Asiento
-    );
+    CheckIn objCheckIn = new CheckIn(CodigoSeguridad, EstadoPaciente, Descripcion, Asiento);
     objCheckIn.AgregarItem(3.2, "Sdfds", "asdasfasa");
   }
 

@@ -12,6 +12,7 @@ public class Entity_Test {
   @Test
   public void constructor_accept() {
     Entity entity = new Entity() {};
+
     entity.setKey(UUID.randomUUID());
     entity.getKey();
     entity.addDomainEvent(new DomainEvent());
@@ -31,6 +32,7 @@ public class Entity_Test {
       when(rule.IsValid()).thenReturn(false);
       entity.CheckRule(rule);
     } catch (BussinessRuleValidateExeption e) {
-    Assert.assertNotNull(entity);
+      Assert.assertNotNull(entity);
+    }
   }
 }
