@@ -12,4 +12,4 @@ services:
   server:
     image: edsoncito/checkin-java
     build: ./ProyectoFinal-CheckIn
-    network_mode: "service:database"
+    network_mode: 'service:database'
