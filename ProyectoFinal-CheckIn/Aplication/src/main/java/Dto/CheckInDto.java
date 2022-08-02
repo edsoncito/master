@@ -5,72 +5,70 @@ import java.util.List;
 import java.util.UUID;
 
 public class CheckInDto {
-    
-    public UUID Key;
-    public String CodigoSeguridad;
-    public Date HoraCheckIn;
-    public Boolean EstadoPaciente;
-    public String Descripcion;
-    public int Asiento;
-    public List<BaggageDto> EquipajeDto;
 
-    public CheckInDto() {
-    }
+  public UUID Key;
+  public String CodigoSeguridad;
+  public Date HoraCheckIn;
+  public Boolean EstadoPaciente;
+  public String Descripcion;
+  public int Asiento;
+  public List<BaggageDto> EquipajeDto;
 
-    public List<BaggageDto> getEquipajeDto() {
-        return EquipajeDto;
-    }
+  public CheckInDto() {}
 
-    public void setEquipajeDto(List<BaggageDto> equipajeDto) {
-        EquipajeDto = equipajeDto;
-    }
+  public List<BaggageDto> getEquipajeDto() {
+    return EquipajeDto;
+  }
 
-    public UUID getKey() {
-        return this.Key;
-    }
+  public void setEquipajeDto(List<BaggageDto> equipajeDto) {
+    EquipajeDto = equipajeDto;
+  }
 
-    public void setKey(UUID Key) {
-        this.Key = Key;
-    }
+  public UUID getKey() {
+    return this.Key;
+  }
 
-    public String getCodigoSeguridad() {
-        return this.CodigoSeguridad;
-    }
+  public void setKey(UUID Key) {
+    this.Key = Key;
+  }
 
-    public void setCodigoSeguridad(String CodigoSeguridad) {
-        this.CodigoSeguridad = CodigoSeguridad;
-    }
+  public String getCodigoSeguridad() {
+    return this.CodigoSeguridad;
+  }
 
-    public Date getHoraCheckIn() {
-        return this.HoraCheckIn;
-    }
+  public void setCodigoSeguridad(String CodigoSeguridad) {
+    this.CodigoSeguridad = CodigoSeguridad;
+  }
 
-    public void setHoraCheckIn(Date HoraCheckIn) {
-        this.HoraCheckIn = HoraCheckIn;
-    }
+  public Date getHoraCheckIn() {
+    return this.HoraCheckIn;
+  }
 
-    public Boolean getEstadoPaciente() {
-        return this.EstadoPaciente;
-    }
+  public void setHoraCheckIn(Date HoraCheckIn) {
+    this.HoraCheckIn = HoraCheckIn;
+  }
 
-    public void setEstadoPaciente(Boolean EstadoPaciente) {
-        this.EstadoPaciente = EstadoPaciente;
-    }
+  public Boolean getEstadoPaciente() {
+    return this.EstadoPaciente;
+  }
 
-    public String getDescripcion() {
-        return this.Descripcion;
-    }
+  public void setEstadoPaciente(Boolean EstadoPaciente) {
+    this.EstadoPaciente = EstadoPaciente;
+  }
 
-    public void setDescripcion(String descripcion) {
-        this.Descripcion = descripcion;
-    }
+  public String getDescripcion() {
+    return this.Descripcion;
+  }
 
-    public int getAsiento() {
-        return this.Asiento;
-    }
+  public void setDescripcion(String descripcion) {
+    this.Descripcion = descripcion;
+  }
 
-    public void setAsiento(int Asiento) {
-        this.Asiento = Asiento;
-    }
+  public int getAsiento() {
+    return this.Asiento;
+  }
 
+  public void setAsiento(int Asiento) {
+    this.Asiento = Asiento;
+  }
 }

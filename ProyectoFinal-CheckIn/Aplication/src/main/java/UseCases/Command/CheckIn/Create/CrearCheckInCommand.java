@@ -8,11 +8,11 @@ import java.util.List;
 
 public class CrearCheckInCommand implements Request<CheckIn> {
 
-	public CheckInDto checkInDto;
-	public List<BaggageDto> Equipaje;
+  public CheckInDto checkInDto;
+  public List<BaggageDto> Equipaje;
 
-	public CrearCheckInCommand(CheckInDto obj) {
-		checkInDto = obj;
-		Equipaje = obj.getEquipajeDto();
-	}
+  public CrearCheckInCommand(CheckInDto obj) {
+    checkInDto = obj;
+    Equipaje = obj.getEquipajeDto();
+  }
 }
