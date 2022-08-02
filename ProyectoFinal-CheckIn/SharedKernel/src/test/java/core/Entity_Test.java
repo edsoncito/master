@@ -30,8 +30,7 @@ public class Entity_Test {
     try {
       when(rule.IsValid()).thenReturn(false);
       entity.CheckRule(rule);
-    } catch (BussinessRuleValidateExeption e) {}
-
+    } catch (BussinessRuleValidateExeption e) {
     Assert.assertNotNull(entity);
   }
 }

@@ -31,7 +31,6 @@ public class BaggageRepository_Test {
     Double PesoEquipaje = 23.3;
     String NumeroEtiqueta = "sdfd33f3";
     String Descripcion = "sdsfsfse";
-
     IWriteDbContext bdTest = new WriteDbContext();
     BaggageRepository baggageRepository = new BaggageRepository(bdTest);
     Baggage objBaggage = new Baggage(PesoEquipaje, NumeroEtiqueta, Descripcion);

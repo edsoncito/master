@@ -14,7 +14,6 @@ public class DescripcionEstado extends ValueObject {
         "No debe ser mayor a 50 caracteres"
       );
     }
-
     Value = value;
   }
 }
