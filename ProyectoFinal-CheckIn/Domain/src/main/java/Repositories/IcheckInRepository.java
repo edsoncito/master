@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.UUID;
 
 public interface IcheckInRepository extends IRepository<CheckIn, UUID> {
-	// public void UpdateAsync(CheckIn obj);
+  // public void UpdateAsync(CheckIn obj);
 
-	public List<CheckIn> GetAll();
+  public List<CheckIn> GetAll();
 
-	public CheckIn Delete(CheckIn checkIn);
+  public CheckIn Delete(CheckIn checkIn);
 
-	public CheckIn Update(CheckIn checkIn);
+  public CheckIn Update(CheckIn checkIn);
 }

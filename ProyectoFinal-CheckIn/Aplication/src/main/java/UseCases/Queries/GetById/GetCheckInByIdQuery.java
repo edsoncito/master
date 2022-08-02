@@ -6,9 +6,9 @@ import java.util.UUID;
 
 public class GetCheckInByIdQuery implements Request<CheckInDto> {
 
-	public UUID Key;
+  public UUID Key;
 
-	public GetCheckInByIdQuery(UUID key) {
-		Key = key;
-	}
+  public GetCheckInByIdQuery(UUID key) {
+    Key = key;
+  }
 }

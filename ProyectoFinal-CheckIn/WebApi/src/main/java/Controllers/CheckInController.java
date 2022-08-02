@@ -17,44 +17,44 @@ import java.util.List;
 @RequestMapping("/checkin")
 public class CheckInController {
 
-	private Mediator _mediator;
+  private Mediator _mediator;
 
-	public CheckInController(Mediator mediator) {
-		this._mediator = mediator;
-	}
+  public CheckInController(Mediator mediator) {
+    this._mediator = mediator;
+  }
 
-	@GetMapping("/{key}")
-	public Response<CheckInDto> getByKey(
-		@PathVariable GetCheckInByIdQuery request
-	) throws HttpException {
-		return _mediator.send(request);
-	}
+  @GetMapping("/{key}")
+  public Response<CheckInDto> getByKey(
+    @PathVariable GetCheckInByIdQuery request
+  ) throws HttpException {
+    return _mediator.send(request);
+  }
 
-	@PostMapping("/registro")
-	public Response<CheckIn> register(
-		@RequestBody CrearCheckInCommand checkInCommand
-	) throws HttpException {
-		Response<CheckIn> obj = _mediator.send(checkInCommand);
-		return obj;
-	}
+  @PostMapping("/registro")
+  public Response<CheckIn> register(
+    @RequestBody CrearCheckInCommand checkInCommand
+  ) throws HttpException {
+    Response<CheckIn> obj = _mediator.send(checkInCommand);
+    return obj;
+  }
 
-	@GetMapping("/")
-	public Response<List<CheckIn>> getAll() throws HttpException {
-		return _mediator.send(new GetCheckInAllQuery());
-	}
+  @GetMapping("/")
+  public Response<List<CheckIn>> getAll() throws HttpException {
+    return _mediator.send(new GetCheckInAllQuery());
+  }
 
-	@PutMapping("/{key}")
-	public Response<CheckIn> edit(
-		@RequestBody CheckIn checkIn,
-		@PathVariable EditCheckInCommand request
-	) throws HttpException {
-		request.checkInDto.CodigoSeguridad = checkIn.CodigoSeguridad;
-		return _mediator.send(request);
-	}
+  @PutMapping("/{key}")
+  public Response<CheckIn> edit(
+    @RequestBody CheckIn checkIn,
+    @PathVariable EditCheckInCommand request
+  ) throws HttpException {
+    request.checkInDto.CodigoSeguridad = checkIn.CodigoSeguridad;
+    return _mediator.send(request);
+  }
 
-	@DeleteMapping("/{key}")
-	public Response<CheckIn> delete(@PathVariable DeleteCheckInCommand request)
-		throws HttpException {
-		return _mediator.send(request);
-	}
+  @DeleteMapping("/{key}")
+  public Response<CheckIn> delete(@PathVariable DeleteCheckInCommand request)
+    throws HttpException {
+    return _mediator.send(request);
+  }
 }

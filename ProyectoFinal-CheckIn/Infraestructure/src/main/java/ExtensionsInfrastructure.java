@@ -8,14 +8,14 @@ import fourteam.extensions.IServiceCollection;
 
 public class ExtensionsInfrastructure {
 
-	public static void AddInfraestructure() {
-		Extensions.AddApplication();
-		IServiceCollection.AddMediator();
-		IServiceCollection.AddScoped(IWriteDbContext.class, WriteDbContext.class);
-		IServiceCollection.AddScoped(IUnitOfWork.class, UnitOfWork.class);
-		IServiceCollection.AddScoped(
-			IcheckInRepository.class,
-			CheckInRepository.class
-		);
-	}
+  public static void AddInfraestructure() {
+    Extensions.AddApplication();
+    IServiceCollection.AddMediator();
+    IServiceCollection.AddScoped(IWriteDbContext.class, WriteDbContext.class);
+    IServiceCollection.AddScoped(IUnitOfWork.class, UnitOfWork.class);
+    IServiceCollection.AddScoped(
+      IcheckInRepository.class,
+      CheckInRepository.class
+    );
+  }
 }
