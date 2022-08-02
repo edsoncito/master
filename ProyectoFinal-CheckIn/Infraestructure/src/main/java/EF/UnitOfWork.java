@@ -1,7 +1,6 @@
 package EF;
 
 import EF.Contexts.IWriteDbContext;
-import EF.Contexts.MongoDb.WriteDbContext;
 import Repositories.IUnitOfWork;
 import core.DomainEvent;
 import fourteam.http.Exception.HttpException;
