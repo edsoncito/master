@@ -8,8 +8,7 @@ import factories.ICheckInFactory;
 import fourteam.http.Exception.HttpException;
 import fourteam.mediator.RequestHandler;
 
-public class CrearCheckInHandler
-  implements RequestHandler<CrearCheckInCommand, CheckIn> {
+public class CrearCheckInHandler implements RequestHandler<CrearCheckInCommand, CheckIn> {
 
   private IcheckInRepository CheckInRepository;
   private ICheckInFactory CheckInFactory;

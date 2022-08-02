@@ -20,12 +20,7 @@ public class CheckIn extends AggregateRoot<UUID> {
 
   public CheckIn() {}
 
-  public CheckIn(
-    String codigoSeguridad,
-    Boolean estadoPaciente,
-    String descripcion,
-    int asiento
-  ) {
+  public CheckIn(String codigoSeguridad, Boolean estadoPaciente, String descripcion, int asiento) {
     key = UUID.randomUUID();
     CodigoSeguridad = codigoSeguridad;
     EstadoPaciente = estadoPaciente;
@@ -34,11 +29,7 @@ public class CheckIn extends AggregateRoot<UUID> {
     equipaje = new ArrayList<Baggage>();
   }
 
-  public void AgregarItem(
-    Double PesoEquipaje,
-    String NumeroEtiqueta,
-    String descripcion
-  ) {
+  public void AgregarItem(Double PesoEquipaje, String NumeroEtiqueta, String descripcion) {
     // var detalleEquipaje = Equipaje.First(x => x.ProductoId == productoId);
     // Equipaje equipaje;
     // if (equipaje is null)

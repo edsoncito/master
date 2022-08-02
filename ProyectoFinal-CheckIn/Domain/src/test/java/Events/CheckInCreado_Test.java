@@ -15,10 +15,7 @@ public class CheckInCreado_Test {
     UUID KeyCheckIn = UUID.randomUUID();
     String CodigoSeguridad = "sdfdsf";
 
-    CheckInCreado personalRegistradoTest = new CheckInCreado(
-      KeyCheckIn,
-      CodigoSeguridad
-    );
+    CheckInCreado personalRegistradoTest = new CheckInCreado(KeyCheckIn, CodigoSeguridad);
 
     personalRegistradoTest.CodigoSeguridad = CodigoSeguridad;
     String codigo = personalRegistradoTest.CodigoSeguridad;

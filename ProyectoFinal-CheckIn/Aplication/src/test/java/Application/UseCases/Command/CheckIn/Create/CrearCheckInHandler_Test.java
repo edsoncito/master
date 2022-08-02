@@ -38,9 +38,7 @@ public class CrearCheckInHandler_Test {
     when(checkInServices.GenerarNroPedidoAsync()).thenReturn(CodigoSeguridad);
     CheckIn objCheckIn = new CheckInFactory()
       .Create(CodigoSeguridad, EstadoPaciente, Descripcion, Asiento);
-    when(
-      checkInFactory.Create(anyString(), anyBoolean(), anyString(), anyInt())
-    )
+    when(checkInFactory.Create(anyString(), anyBoolean(), anyString(), anyInt()))
       .thenReturn(objCheckIn);
 
     CrearCheckInHandler handler = new CrearCheckInHandler(
@@ -64,10 +62,7 @@ public class CrearCheckInHandler_Test {
     verify(_unitOfWork).commit();
     verify(checkInServices).GenerarNroPedidoAsync();
 
-    Assert.assertEquals(
-      CheckInCreado.class,
-      objCheckIn.domainEvents.get(0).getClass()
-    );
+    Assert.assertEquals(CheckInCreado.class, objCheckIn.domainEvents.get(0).getClass());
     Assert.assertEquals(CodigoSeguridad, resp.CodigoSeguridad);
     Assert.assertEquals(EstadoPaciente, resp.EstadoPaciente);
     Assert.assertEquals(Descripcion, resp.Descripcion);

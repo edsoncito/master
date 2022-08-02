@@ -13,9 +13,6 @@ public class ExtensionsInfrastructure {
     IServiceCollection.AddMediator();
     IServiceCollection.AddScoped(IWriteDbContext.class, WriteDbContext.class);
     IServiceCollection.AddScoped(IUnitOfWork.class, UnitOfWork.class);
-    IServiceCollection.AddScoped(
-      IcheckInRepository.class,
-      CheckInRepository.class
-    );
+    IServiceCollection.AddScoped(IcheckInRepository.class, CheckInRepository.class);
   }
 }

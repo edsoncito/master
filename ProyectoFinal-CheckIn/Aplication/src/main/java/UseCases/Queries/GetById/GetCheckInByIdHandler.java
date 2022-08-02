@@ -8,8 +8,7 @@ import fourteam.mediator.RequestHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetCheckInByIdHandler
-  implements RequestHandler<GetCheckInByIdQuery, CheckInDto> {
+public class GetCheckInByIdHandler implements RequestHandler<GetCheckInByIdQuery, CheckInDto> {
 
   private IcheckInRepository _IcheckInRepository;
 
