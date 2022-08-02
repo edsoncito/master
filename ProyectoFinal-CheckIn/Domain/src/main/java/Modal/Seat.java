@@ -1,7 +1,3 @@
 package Modal;
 
-public class Seat {
-
-
-
-}
+public class Seat {}

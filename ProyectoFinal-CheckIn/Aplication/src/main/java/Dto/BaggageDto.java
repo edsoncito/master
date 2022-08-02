@@ -2,34 +2,33 @@ package Dto;
 
 public class BaggageDto {
 
-    public Double PesoEquipaje;
-    public String NumeroEtiqueta;
-    public String Descripcion;
+  public Double PesoEquipaje;
+  public String NumeroEtiqueta;
+  public String Descripcion;
 
-    public BaggageDto() {
-    }
+  public BaggageDto() {}
 
-    public Double getPesoEquipaje() {
-        return PesoEquipaje;
-    }
+  public Double getPesoEquipaje() {
+    return PesoEquipaje;
+  }
 
-    public void setPesoEquipaje(Double pesoEquipaje) {
-        PesoEquipaje = pesoEquipaje;
-    }
+  public void setPesoEquipaje(Double pesoEquipaje) {
+    PesoEquipaje = pesoEquipaje;
+  }
 
-    public String getNumeroEtiqueta() {
-        return NumeroEtiqueta;
-    }
+  public String getNumeroEtiqueta() {
+    return NumeroEtiqueta;
+  }
 
-    public void setNumeroEtiqueta(String numeroEtiquta) {
-        NumeroEtiqueta = numeroEtiquta;
-    }
+  public void setNumeroEtiqueta(String numeroEtiquta) {
+    NumeroEtiqueta = numeroEtiquta;
+  }
 
-    public String getDescripcion() {
-        return Descripcion;
-    }
+  public String getDescripcion() {
+    return Descripcion;
+  }
 
-    public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
-    }
+  public void setDescripcion(String descripcion) {
+    Descripcion = descripcion;
+  }
 }

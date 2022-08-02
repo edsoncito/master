@@ -1,5 +1,5 @@
 package Services;
 
 public interface IcheckInService {
-	public String GenerarNroPedidoAsync();
+  public String GenerarNroPedidoAsync();
 }
