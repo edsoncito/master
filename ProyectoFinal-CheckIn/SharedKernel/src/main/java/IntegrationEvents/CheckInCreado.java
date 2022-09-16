@@ -1,8 +1,9 @@
 package IntegrationEvents;
 
+import core.IntegrationEvent;
 import java.util.UUID;
 
-public class CheckInCreado {
+public class CheckInCreado extends IntegrationEvent {
 
   public UUID keyVuelo;
   public int numeroAsiento;

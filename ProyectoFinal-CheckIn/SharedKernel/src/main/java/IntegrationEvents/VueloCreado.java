@@ -1,8 +1,9 @@
 package IntegrationEvents;
 
+import core.IntegrationEvent;
 import java.util.List;
 
-public class VueloCreado {
+public class VueloCreado extends IntegrationEvent {
 
   private String keyVuelo;
   private String ciudadOrigen;

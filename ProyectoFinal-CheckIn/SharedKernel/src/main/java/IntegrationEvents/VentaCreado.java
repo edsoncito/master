@@ -1,6 +1,8 @@
 package IntegrationEvents;
 
-public class VentaCreado {
+import core.IntegrationEvent;
+
+public class VentaCreado extends IntegrationEvent {
 
   private String keyVuelo;
   private int dni;

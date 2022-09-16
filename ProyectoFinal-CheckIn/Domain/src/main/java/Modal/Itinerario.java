@@ -1,12 +1,11 @@
 package Modal;
 
-import core.Entity;
+import core.AggregateRoot;
 import java.util.List;
 import java.util.UUID;
 
-public class Itinerario extends Entity<UUID> {
+public class Itinerario extends AggregateRoot<UUID> {
 
-  private String keyVuelo;
   private String ciudadOrigen;
   private String ciudadDestino;
   private List<Asiento> asiento;
@@ -14,23 +13,23 @@ public class Itinerario extends Entity<UUID> {
   public Itinerario() {}
 
   public Itinerario(
-    String keyVuelo,
+    UUID keyVuelo,
     String ciudadOrigen,
     String ciudadDestino,
     List<Asiento> asiento
   ) {
-    this.keyVuelo = keyVuelo;
+    this.key = keyVuelo;
     this.ciudadOrigen = ciudadOrigen;
     this.ciudadDestino = ciudadDestino;
     this.asiento = asiento;
   }
 
-  public String getKeyVuelo() {
-    return this.keyVuelo;
+  public UUID getKeyVuelo() {
+    return this.key;
   }
 
-  public void setKeyVuelo(String keyVuelo) {
-    this.keyVuelo = keyVuelo;
+  public void setKeyVuelo(UUID keyVuelo) {
+    this.key = keyVuelo;
   }
 
   public String getCiudadOrigen() {

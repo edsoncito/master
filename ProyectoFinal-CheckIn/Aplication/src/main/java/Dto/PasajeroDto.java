@@ -1,23 +1,21 @@
-package Modal;
+package Dto;
 
-import core.AggregateRoot;
 import java.util.UUID;
 
-public class Pasajero extends AggregateRoot<UUID> {
+public class PasajeroDto {
 
+  private UUID key;
   private UUID keyVuelo;
   private String nombre;
   private String apellido;
   private int dni;
 
-  public Pasajero() {}
+  public UUID getKey() {
+    return this.key;
+  }
 
-  public Pasajero(UUID key, UUID _keyVuelo, String nombre, String apellido, int dni) {
+  public void setKey(UUID key) {
     this.key = key;
-    this.keyVuelo = _keyVuelo;
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.dni = dni;
   }
 
   public UUID getKeyVuelo() {
@@ -44,24 +42,8 @@ public class Pasajero extends AggregateRoot<UUID> {
     this.apellido = apellido;
   }
 
-  public String getnombre() {
-    return nombre;
-  }
-
-  public void setnombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public String getapellido() {
-    return apellido;
-  }
-
-  public void setapellido(String apellido) {
-    this.apellido = apellido;
-  }
-
   public int getDni() {
-    return dni;
+    return this.dni;
   }
 
   public void setDni(int dni) {

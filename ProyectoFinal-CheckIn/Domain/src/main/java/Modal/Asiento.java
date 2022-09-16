@@ -5,23 +5,23 @@ import java.util.UUID;
 
 public class Asiento extends Entity<UUID> {
 
-  private String numero;
+  private String numeroAsiento;
   private int disponibilidad;
 
   public Asiento() {}
 
-  public Asiento(UUID key, String numero, int disponibilidad) {
+  public Asiento(UUID key, String numeroAsiento, int disponibilidad) {
     this.key = key;
-    this.numero = numero;
+    this.numeroAsiento = numeroAsiento;
     this.disponibilidad = disponibilidad;
   }
 
   public void setNumero(String numero) {
-    this.numero = numero;
+    this.numeroAsiento = numero;
   }
 
   public String getNumero() {
-    return numero;
+    return numeroAsiento;
   }
 
   public void setDisponibilidad(int disponibilidad) {

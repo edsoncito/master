@@ -13,21 +13,27 @@ public class CheckIn extends AggregateRoot<UUID> {
   public Date HoraCheckIn;
   public Boolean EstadoPaciente;
   public String Descripcion;
-  public int Asiento;
+  public int NumeroAsiento;
   public List<Equipaje> equipaje;
-  public String vueloId;
-  public String pasajeroId;
-
-  // private List<Seat> Seats ;
+  public List<Asiento> asientos;
+  public Pasajero pasajero;
+  public Itinerario itinerario;
+  public String keyVuelo;
+  public String keyPasajero;
 
   public CheckIn() {}
 
-  public CheckIn(String codigoSeguridad, Boolean estadoPaciente, String descripcion, int asiento) {
+  public CheckIn(
+    String codigoSeguridad,
+    Boolean estadoPaciente,
+    String descripcion,
+    int numeroAsiento
+  ) {
     key = UUID.randomUUID();
     CodigoSeguridad = codigoSeguridad;
     EstadoPaciente = estadoPaciente;
     Descripcion = descripcion;
-    Asiento = asiento;
+    NumeroAsiento = numeroAsiento;
     equipaje = new ArrayList<Equipaje>();
   }
 
@@ -95,10 +101,10 @@ public class CheckIn extends AggregateRoot<UUID> {
   }
 
   public int getAsiento() {
-    return this.Asiento;
+    return this.NumeroAsiento;
   }
 
   public void setAsiento(int Asiento) {
-    this.Asiento = Asiento;
+    this.NumeroAsiento = Asiento;
   }
 }
