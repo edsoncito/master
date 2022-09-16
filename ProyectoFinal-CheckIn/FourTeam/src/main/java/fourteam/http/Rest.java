@@ -1,15 +1,19 @@
 package fourteam.http;
 
 import fourteam.http.Exception.HttpException;
+import fourteam.swagger.parts.Document;
+import fourteam.swagger.parts.Path;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.net.InetSocketAddress;
 import java.util.HashMap;
 import org.jboss.com.sun.net.httpserver.HttpContext;
 import org.jboss.com.sun.net.httpserver.HttpExchange;
 import org.jboss.com.sun.net.httpserver.HttpServer;
+import org.yaml.snakeyaml.Yaml;
 
 public abstract class Rest {
 
@@ -73,8 +77,13 @@ public abstract class Rest {
       }
     }
     if (controller == null) {
-      response.setCode(HttpStatus.BAD_GATEWAY);
-      response.setBody("Controller not found");
+      try {
+        Download.handleRequest(t);
+      } catch (IOException e) {
+        response.setCode(HttpStatus.BAD_GATEWAY);
+        response.setBody("Controller not found");
+        e.printStackTrace();
+      }
       return;
     }
     try {
@@ -96,5 +105,31 @@ public abstract class Rest {
         response.setCode(HttpStatus.INTERNAL_SERVER_ERROR);
       }
     }
+  }
+
+  public static void createSwagger() {
+    Document doc = new Document();
+    for (String key : controllers.keySet()) {
+      Controller controller = controllers.get(key);
+      String tag = controller.getRoute();
+      doc.addTag(tag, key + "_descripcion");
+      controller
+        .getActions()
+        .iterator()
+        .forEachRemaining(action -> {
+          Path po = action.getPathSwagger(controller, tag);
+          doc.addPath(po);
+        });
+    }
+    PrintWriter writer;
+    try {
+      Yaml yaml = new Yaml();
+      writer = new PrintWriter("swagger.yaml", "UTF-8");
+      yaml.dump(doc.toHasMap(), writer);
+      writer.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    // return doc.toJSON().toString();
   }
 }

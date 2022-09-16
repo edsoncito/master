@@ -13,6 +13,7 @@ public class SharedKernel {
     rule.NotNullRule.class,
     rule.StringNotNullOrEmptyRule.class,
     // mediator
+
   };
 
   public static void AddKernel() {

@@ -2,6 +2,7 @@ package EF;
 
 import EF.Contexts.IWriteDbContext;
 import Repositories.IUnitOfWork;
+import core.ConfirmedDomainEvent;
 import core.DomainEvent;
 import fourteam.http.Exception.HttpException;
 import fourteam.mediator.Mediator;
@@ -25,5 +26,13 @@ public class UnitOfWork implements IUnitOfWork {
       _mediator.notify(event);
     }
     _context.Commit();
+    for (Object domainEvent : events) {
+      DomainEvent event = (DomainEvent) domainEvent;
+      _mediator.notify(MakeGeneryc(event));
+    }
+  }
+
+  public <T> ConfirmedDomainEvent<T> MakeGeneryc(T o) {
+    return new ConfirmedDomainEvent<T>(o);
   }
 }

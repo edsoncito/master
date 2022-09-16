@@ -35,6 +35,10 @@ public class Controller {
     this.initMethods();
   }
 
+  public ArrayList<Action> getActions() {
+    return actions;
+  }
+
   private void initMethods() {
     Method[] methods = controller.getMethods();
     System.out.println("--------------------------------------");

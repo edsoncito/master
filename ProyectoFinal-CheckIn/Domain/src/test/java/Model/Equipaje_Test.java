@@ -1,11 +1,11 @@
 package Model;
 
-import Modal.Baggage;
 import Modal.CheckIn;
+import Modal.Equipaje;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Baggage_Test {
+public class Equipaje_Test {
 
   @Test
   public void Correctly() {
@@ -13,9 +13,9 @@ public class Baggage_Test {
     String NumeroEtiqueta = "sdfd33f3";
     String Descripcion = "sdsfsfse";
 
-    Baggage objBaggage = new Baggage(PesoEquipaje, NumeroEtiqueta, Descripcion);
+    Equipaje objBaggage = new Equipaje(PesoEquipaje, NumeroEtiqueta, Descripcion);
 
-    Baggage baggage = new Baggage();
+    Equipaje baggage = new Equipaje();
 
     baggage.setPesoEquipaje(objBaggage.getPesoEquipaje());
     baggage.setNumeroEtiqueta(objBaggage.getNumeroEtiquta());

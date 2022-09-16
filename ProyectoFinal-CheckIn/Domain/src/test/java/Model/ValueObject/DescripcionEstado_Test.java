@@ -1,6 +1,5 @@
 package Model.ValueObject;
 
-import Modal.valueObject.CodigoSeguridad;
 import Modal.valueObject.DescripcionEstado;
 import core.BussinessRuleValidateExeption;
 import org.junit.Test;

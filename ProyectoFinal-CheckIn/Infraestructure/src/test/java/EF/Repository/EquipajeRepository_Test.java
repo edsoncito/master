@@ -4,7 +4,7 @@ import static org.mockito.ArgumentMatchers.any;
 
 import EF.Contexts.IWriteDbContext;
 import EF.Contexts.MongoDb.WriteDbContext;
-import Modal.Baggage;
+import Modal.Equipaje;
 import fourteam.db.DbSet;
 import fourteam.http.Exception.HttpException;
 import java.util.UUID;
@@ -13,17 +13,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class BaggageRepository_Test {
+public class EquipajeRepository_Test {
 
   @Before
   public void setup() {}
 
   IWriteDbContext bdTest = Mockito.mock(IWriteDbContext.class);
-  DbSet<Baggage> _baggage = Mockito.mock(DbSet.class);
+  DbSet<Equipaje> _baggage = Mockito.mock(DbSet.class);
 
   @Before
   public void setUp() {
-    bdTest.baggage = _baggage;
+    bdTest.equipaje = _baggage;
   }
 
   @Test
@@ -32,41 +32,41 @@ public class BaggageRepository_Test {
     String NumeroEtiqueta = "sdfd33f3";
     String Descripcion = "sdsfsfse";
     IWriteDbContext bdTest = new WriteDbContext();
-    BaggageRepository baggageRepository = new BaggageRepository(bdTest);
-    Baggage objBaggage = new Baggage(PesoEquipaje, NumeroEtiqueta, Descripcion);
+    EquipajeRepository baggageRepository = new EquipajeRepository(bdTest);
+    Equipaje objBaggage = new Equipaje(PesoEquipaje, NumeroEtiqueta, Descripcion);
   }
 
   @Test
   public void GetAll_Test() {
-    BaggageRepository baggageRepository = new BaggageRepository(bdTest);
+    EquipajeRepository baggageRepository = new EquipajeRepository(bdTest);
     baggageRepository.GetAll();
     Assert.assertNotNull(baggageRepository);
   }
 
   @Test
   public void Create_Test() {
-    BaggageRepository baggageRepository = new BaggageRepository(bdTest);
-    baggageRepository.Create(any(Baggage.class));
+    EquipajeRepository baggageRepository = new EquipajeRepository(bdTest);
+    baggageRepository.Create(any(Equipaje.class));
     Assert.assertNotNull(baggageRepository);
   }
 
   @Test
   public void Update_Test() {
-    BaggageRepository baggageRepository = new BaggageRepository(bdTest);
-    baggageRepository.Update(new Baggage());
+    EquipajeRepository baggageRepository = new EquipajeRepository(bdTest);
+    baggageRepository.Update(new Equipaje());
     Assert.assertNotNull(baggageRepository);
   }
 
   @Test
   public void Delete_Test() {
-    BaggageRepository baggageRepository = new BaggageRepository(bdTest);
-    baggageRepository.Delete(new Baggage());
+    EquipajeRepository baggageRepository = new EquipajeRepository(bdTest);
+    baggageRepository.Delete(new Equipaje());
     Assert.assertNotNull(baggageRepository);
   }
 
   @Test
   public void FindByKey_Test() {
-    BaggageRepository baggageRepository = new BaggageRepository(bdTest);
+    EquipajeRepository baggageRepository = new EquipajeRepository(bdTest);
     baggageRepository.FindByKey(UUID.randomUUID());
     Assert.assertNotNull(baggageRepository);
   }
