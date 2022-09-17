@@ -1,17 +1,15 @@
 package Controllers;
 
 import Dto.CheckInDto;
-import Modal.CheckIn;
 import UseCases.Command.CheckIn.Create.CrearCheckInCommand;
 import UseCases.Command.CheckIn.Delete.DeleteCheckInCommand;
 import UseCases.Command.CheckIn.Edit.EditCheckInCommand;
 import UseCases.Queries.GetAll.GetCheckInAllQuery;
 import UseCases.Queries.GetById.GetCheckInByIdQuery;
-import fourteam.http.Exception.HttpException;
 import fourteam.http.annotation.*;
 import fourteam.mediator.Mediator;
-import fourteam.mediator.Response;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/checkin")
@@ -24,34 +22,32 @@ public class CheckInController {
   }
 
   @GetMapping("/{key}")
-  public Response<CheckInDto> getByKey(@PathVariable GetCheckInByIdQuery request)
-    throws HttpException {
-    return _mediator.send(request);
+  public CheckInDto getByKey(@PathVariable GetCheckInByIdQuery request) throws Exception {
+    return (CheckInDto) _mediator.send(request).data;
   }
 
   @PostMapping("/registro")
-  public Response<CheckIn> register(@RequestBody CrearCheckInCommand checkInCommand)
-    throws HttpException {
-    Response<CheckIn> obj = _mediator.send(checkInCommand);
-    return obj;
+  public String register(@RequestBody CrearCheckInCommand checkInCommand) throws Exception {
+    return "hola ";
+    // return (UUID) _mediator.send(checkInCommand).data;
   }
 
   @GetMapping("/")
-  public Response<List<CheckIn>> getAll() throws HttpException {
-    return _mediator.send(new GetCheckInAllQuery());
+  public List<CheckInDto> getAll() throws Exception {
+    return (List<CheckInDto>) _mediator.send(new GetCheckInAllQuery()).data;
   }
 
   @PutMapping("/{key}")
-  public Response<CheckIn> edit(
-    @RequestBody CheckIn checkIn,
+  public CheckInDto edit(
+    @RequestBody CheckInDto checkInDto,
     @PathVariable EditCheckInCommand request
-  ) throws HttpException {
-    request.checkInDto.CodigoSeguridad = checkIn.CodigoSeguridad;
-    return _mediator.send(request);
+  ) throws Exception {
+    request.checkInDto.CodigoSeguridad = checkInDto.CodigoSeguridad;
+    return (CheckInDto) _mediator.send(request).data;
   }
 
   @DeleteMapping("/{key}")
-  public Response<CheckIn> delete(@PathVariable DeleteCheckInCommand request) throws HttpException {
-    return _mediator.send(request);
+  public UUID delete(@PathVariable DeleteCheckInCommand request) throws Exception {
+    return (UUID) _mediator.send(request).data;
   }
 }

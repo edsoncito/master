@@ -7,8 +7,9 @@ import factories.ICheckInFactory;
 import fourteam.http.Exception.HttpException;
 import fourteam.http.HttpStatus;
 import fourteam.mediator.RequestHandler;
+import java.util.UUID;
 
-public class EditCheckInHandler implements RequestHandler<EditCheckInCommand, CheckIn> {
+public class EditCheckInHandler implements RequestHandler<EditCheckInCommand, UUID> {
 
   private ICheckInFactory _checkInFactory;
   private IcheckInRepository _icheckInRepository;
@@ -25,13 +26,13 @@ public class EditCheckInHandler implements RequestHandler<EditCheckInCommand, Ch
   }
 
   @Override
-  public CheckIn handle(EditCheckInCommand request) throws HttpException {
+  public UUID handle(EditCheckInCommand request) throws Exception {
     CheckIn checkIn = _icheckInRepository.FindByKey(request.checkInDto.getKey());
     if (checkIn == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "CheckIn no encontrada");
     }
     checkIn.CodigoSeguridad = request.checkInDto.getCodigoSeguridad();
     _icheckInRepository.Update(checkIn);
-    return checkIn;
+    return checkIn.key;
   }
 }

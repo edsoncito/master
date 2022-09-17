@@ -1,19 +1,20 @@
 package IntegrationEvents;
 
 import core.IntegrationEvent;
+import java.util.UUID;
 
 public class VentaCreado extends IntegrationEvent {
 
-  private String keyVuelo;
+  private UUID keyVuelo;
   private int dni;
   private String nombre;
   private String apellido;
 
-  public String getKeyVuelo() {
+  public UUID getKeyVuelo() {
     return this.keyVuelo;
   }
 
-  public void setKeyVuelo(String keyVuelo) {
+  public void setKeyVuelo(UUID keyVuelo) {
     this.keyVuelo = keyVuelo;
   }
 

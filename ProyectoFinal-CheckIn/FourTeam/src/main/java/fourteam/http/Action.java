@@ -38,7 +38,7 @@ public class Action {
   private String route;
   private ArrayList<String> params;
 
-  public Action(Method method) throws HttpCodeException {
+  public Action(Method method) throws Exception {
     this.method = method;
     Annotation annotation = method.getAnnotation(GetMapping.class);
     if (annotation instanceof GetMapping) {
@@ -68,7 +68,9 @@ public class Action {
       this.type = ActionType.DELETE;
       return;
     }
-    throw new HttpCodeException("El metodo no tiene la anotacion GetMapping o PostMapping");
+    throw new HttpCodeException(
+      "El metodo no tiene la anotacion GetMapping o PostMapping " + method.getName()
+    );
   }
 
   private static final Pattern p = Pattern.compile("\\{(.*?)\\}");
@@ -117,8 +119,7 @@ public class Action {
     String path,
     String data,
     Object instance
-  )
-    throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, HttpException {
+  ) throws Exception {
     Parameter[] parameters = this.method.getParameters();
     // Class[] paramTypes = this.method.getParameterTypes();
     ArrayList<Object> values = new ArrayList<Object>();
@@ -162,22 +163,26 @@ public class Action {
       r.status = response.getCode();
       response.setBody(r.toString());
     } else {
-      response.setBody(resp.toString());
+      response.setBody(parseValueToString(resp, this.method.getReturnType()));
     }
   }
 
-  public Object invoke(Object instance, Object... arg)
-    throws HttpException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+  public Object invoke(Object instance, Object... arg) throws Exception {
     if (this.method == null) {
       return null;
     }
     if (!this.method.trySetAccessible()) {
       return null;
     }
+
     return this.method.invoke(instance, arg);
   }
 
-  public Object parseValue(Object value, Class<?> type) {
+  public String parseValueToString(Object value, Class<?> type) {
+    return JSON.getInstance().toJson(value);
+  }
+
+  public Object parseValue(Object value, Class<?> type) throws Exception {
     if (type == String.class) {
       return value.toString();
     }
@@ -217,30 +222,20 @@ public class Action {
     return JSON.getInstance().fromJson(value.toString(), type);
   }
 
-  public Object createRequest(Class type, Object value) {
+  public Object createRequest(Class type, Object value) throws Exception {
     Object instance;
-    try {
-      Constructor[] constructors = type.getConstructors();
-      for (Constructor constructor : constructors) {
-        ArrayList<Object> values = new ArrayList<>();
-        Class[] paramTypes = constructor.getParameterTypes();
-        for (Class paramt : paramTypes) {
-          values.add(JSON.getInstance().fromJson(value.toString(), paramt));
-        }
-        instance = constructor.newInstance(values.toArray());
-        return instance;
+    Constructor[] constructors = type.getConstructors();
+    for (Constructor constructor : constructors) {
+      ArrayList<Object> values = new ArrayList<>();
+      Class[] paramTypes = constructor.getParameterTypes();
+      for (Class paramt : paramTypes) {
+        values.add(JSON.getInstance().fromJson(value.toString(), paramt));
       }
-      instance = type.getConstructor().newInstance();
-    } catch (
-      InstantiationException
-      | IllegalAccessException
-      | IllegalArgumentException
-      | InvocationTargetException
-      | NoSuchMethodException
-      | SecurityException e
-    ) {
-      e.printStackTrace();
+      instance = constructor.newInstance(values.toArray());
+      return instance;
     }
+    instance = type.getConstructor().newInstance();
+
     return null;
   }
 

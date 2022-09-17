@@ -1,5 +1,6 @@
 package fourteam.http;
 
+import fourteam.console.console;
 import fourteam.extensions.DependencyInjection;
 import fourteam.http.Exception.HttpCodeException;
 import fourteam.http.Exception.HttpException;
@@ -27,9 +28,11 @@ public class Controller {
     }
     annotation = controller.getAnnotation(RequestMapping.class);
     this.route = controller.getName();
+
     if ((annotation instanceof RequestMapping)) {
       this.route = ((RequestMapping) annotation).value();
     }
+    console.log("[", "Rest", "]", "Controller loaded on route='", this.route, "'");
     this.controller = controller;
     actions = new ArrayList<Action>();
     this.initMethods();
@@ -41,28 +44,34 @@ public class Controller {
 
   private void initMethods() {
     Method[] methods = controller.getMethods();
-    System.out.println("--------------------------------------");
-    System.out.println("[CONTROLLER] " + this.route);
+    // System.out.println("--------------------------------------");
+    // System.out.println("[CONTROLLER] " + this.route);
+
     for (Method method : methods) {
       Action action = null;
       try {
         action = new Action(method);
-      } catch (HttpCodeException e) {}
+      } catch (Exception e) {
+        if (e instanceof HttpCodeException) {
+          continue;
+        } else {
+          e.printStackTrace();
+        }
+      }
       if (action == null) {
         continue;
       }
       actions.add(action);
       System.out.println("" + action.getType() + ":\t" + this.route + action.getRoute());
     }
-    System.out.println("--------------------------------------");
+    // System.out.println("--------------------------------------");
   }
 
   public String getRoute() {
     return route;
   }
 
-  public void onMessage(HttpExchange t, String data, Response response)
-    throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, HttpException {
+  public void onMessage(HttpExchange t, String data, Response response) throws Exception {
     String path = t.getRequestURI().getPath();
     path = path.split("\\?")[0];
     path = path.substring(path.indexOf(route) + route.length());

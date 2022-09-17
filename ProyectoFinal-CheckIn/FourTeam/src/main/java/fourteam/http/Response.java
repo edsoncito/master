@@ -24,6 +24,6 @@ public class Response {
 
   @Override
   public String toString() {
-    return this.body;
+    return this.body == null ? "" : this.body;
   }
 }

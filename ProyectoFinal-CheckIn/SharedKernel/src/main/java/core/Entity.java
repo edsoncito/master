@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class Entity<TId> {
 
   public TId key;
-  public List<DomainEvent> domainEvents;
+  public transient List<DomainEvent> domainEvents;
 
   // private Collection<DomainEvent> DomainEvents;
 

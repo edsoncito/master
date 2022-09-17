@@ -15,7 +15,7 @@ public class GetCheckInAllHandler implements RequestHandler<GetCheckInAllQuery, 
   }
 
   @Override
-  public List<CheckIn> handle(GetCheckInAllQuery request) throws HttpException {
+  public List<CheckIn> handle(GetCheckInAllQuery request) throws Exception {
     return _checkInRepository.GetAll();
   }
 }

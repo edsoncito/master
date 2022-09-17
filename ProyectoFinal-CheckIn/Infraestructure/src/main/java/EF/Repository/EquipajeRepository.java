@@ -16,28 +16,28 @@ public class EquipajeRepository implements IequipajeRepository {
   }
 
   @Override
-  public Equipaje FindByKey(UUID key) {
+  public Equipaje FindByKey(UUID key) throws Exception {
     return _equipaje.Single(obj -> obj.key.equals(key));
   }
 
   @Override
-  public void Create(Equipaje obj) {
+  public void Create(Equipaje obj) throws Exception {
     _equipaje.Add(obj);
   }
 
   @Override
-  public List<Equipaje> GetAll() {
+  public List<Equipaje> GetAll() throws Exception {
     return _equipaje.All();
   }
 
   @Override
-  public Equipaje Delete(Equipaje obj) {
+  public Equipaje Delete(Equipaje obj) throws Exception {
     _equipaje.Delete((it -> it.key.equals(obj.key)));
     return obj;
   }
 
   @Override
-  public Equipaje Update(Equipaje obj) {
+  public Equipaje Update(Equipaje obj) throws Exception {
     _equipaje.Update(obj, (it -> it.key.equals(obj.key)));
     return obj;
   }

@@ -16,28 +16,28 @@ public class CheckInRepository implements IcheckInRepository {
   }
 
   @Override
-  public CheckIn FindByKey(UUID key) {
+  public CheckIn FindByKey(UUID key) throws Exception {
     return _checkIn.Single(obj -> obj.key.equals(key));
   }
 
   @Override
-  public void Create(CheckIn obj) {
+  public void Create(CheckIn obj) throws Exception {
     _checkIn.Add(obj);
   }
 
   @Override
-  public List<CheckIn> GetAll() {
+  public List<CheckIn> GetAll() throws Exception {
     return _checkIn.All();
   }
 
   @Override
-  public CheckIn Delete(CheckIn obj) {
+  public CheckIn Delete(CheckIn obj) throws Exception {
     _checkIn.Delete((it -> it.key.equals(obj.key)));
     return obj;
   }
 
   @Override
-  public CheckIn Update(CheckIn obj) {
+  public CheckIn Update(CheckIn obj) throws Exception {
     _checkIn.Update(obj, (it -> it.key.equals(obj.key)));
     return obj;
   }

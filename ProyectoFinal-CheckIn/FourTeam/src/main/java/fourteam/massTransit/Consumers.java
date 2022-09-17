@@ -2,6 +2,7 @@ package fourteam.massTransit;
 
 import com.google.gson.Gson;
 import com.rabbitmq.client.DeliverCallback;
+import fourteam.config.Config;
 import fourteam.extensions.DependencyInjection;
 import fourteam.mediator.IMediator;
 import fourteam.mediator.Notification;
@@ -24,7 +25,7 @@ public class Consumers<T> {
     Type tType = ((ParameterizedType) type).getActualTypeArguments()[0];
     this.EventClass = (Class<?>) tType;
     this.Name = EventClass.getName();
-    this.QueueName = this.consumer.getName();
+    this.QueueName = Config.ServiceName + "." + this.consumer.getName();
     this.ExchangeName = EventClass.getName();
   }
 

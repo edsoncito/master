@@ -1,5 +1,6 @@
 package fourteam.http;
 
+import fourteam.console.console;
 import fourteam.http.Exception.HttpException;
 import fourteam.swagger.parts.Document;
 import fourteam.swagger.parts.Path;
@@ -27,7 +28,7 @@ public abstract class Rest {
       }
       controllers.put(controller.getRoute(), controller);
     } catch (Exception e) {
-      e.printStackTrace();
+      // e.printStackTrace();
     }
   }
 
@@ -40,11 +41,18 @@ public abstract class Rest {
     System.setProperty("org.eclipse.jetty.util.log.class", "org.eclipse.jetty.util.log.StdErrLog");
     System.setProperty("org.eclipse.jetty.LEVEL", "OFF");
     try {
+      console.warning(
+        "[",
+        Rest.class.getSimpleName(),
+        "]",
+        "Trying to start the server on port " + port
+      );
       server = HttpServer.create(new InetSocketAddress(port), 0);
       HttpContext context = server.createContext("/");
       context.setHandler(Rest::RestHandler);
       server.start();
-      System.out.println("Server started on port " + port);
+
+      console.succes("[", Rest.class.getSimpleName(), "]", "Server running on port " + port);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -82,29 +90,40 @@ public abstract class Rest {
       } catch (IOException e) {
         response.setCode(HttpStatus.BAD_GATEWAY);
         response.setBody("Controller not found");
-        e.printStackTrace();
       }
       return;
     }
     try {
       controller.onMessage(t, data, response);
-    } catch (
-      InstantiationException
-      | IllegalAccessException
-      | IllegalArgumentException
-      | InvocationTargetException
-      | NoSuchMethodException
-      | SecurityException
-      | HttpException e
-    ) {
-      if (e.getCause() instanceof HttpException) {
-        response.setCode(((HttpException) e.getCause()).getCode());
-        response.setBody(((HttpException) e.getCause()).getMessage());
+    } catch (Exception e) {
+      e = getCauseRec(e);
+      // if (e.getStackTrace().length == 0) {
+      // System.out.println("No more stack trace after thrown.");
+      // return;
+      // }
+      // e.getCause().printStackTrace();
+      // // e.printStackTrace();
+      if (e instanceof HttpException) {
+        response.setCode(((HttpException) e).getCode());
+        response.setBody(((HttpException) e).getMessage());
       } else {
-        response.setBody("Internal server error");
+        response.setBody(e.getMessage());
         response.setCode(HttpStatus.INTERNAL_SERVER_ERROR);
+        e.printStackTrace();
       }
     }
+  }
+
+  public static Exception getCauseRec(Exception e) {
+    if (e instanceof HttpException) {
+      return e;
+    }
+
+    Exception a = (Exception) e.getCause();
+    if (a == null) {
+      return e;
+    }
+    return getCauseRec(a);
   }
 
   public static void createSwagger() {

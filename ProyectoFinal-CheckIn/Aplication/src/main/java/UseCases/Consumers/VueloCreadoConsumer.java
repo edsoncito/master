@@ -1,19 +1,46 @@
 package UseCases.Consumers;
 
+import Modal.Itinerario;
+import Repositories.IUnitOfWork;
+import Repositories.IitinerarioRepository;
+import factories.itinerario.IitinerarioFactory;
 import fourteam.massTransit.IConsumer;
-import fourteam.mediator.IMediator;
 
-public class VueloCreadoConsumer extends IConsumer<IntegrationEvents.AeronaveCreado> {
+public class VueloCreadoConsumer extends IConsumer<IntegrationEvents.VueloCreado> {
 
   public static String QueueName = "checkin-creado-checkin";
 
-  public VueloCreadoConsumer(IMediator mediator) {
-    System.out.println("Entro al constructor del consumer");
+  private IitinerarioRepository iitinerarioRepository;
+  private IitinerarioFactory iitinerarioFactory;
+  private IUnitOfWork _unitOfWork;
+
+  public VueloCreadoConsumer(
+    IitinerarioRepository iitinerarioRepository,
+    IitinerarioFactory iitinerarioFactory,
+    IUnitOfWork _unitOfWork
+  ) {
+    this.iitinerarioRepository = iitinerarioRepository;
+    this.iitinerarioFactory = iitinerarioFactory;
+    this._unitOfWork = _unitOfWork;
   }
 
   @Override
-  public void Consume(IntegrationEvents.AeronaveCreado object) {
-    // TODO Auto-generated method stub
-    System.out.println("Entro al consumido");
+  public void Consume(IntegrationEvents.VueloCreado objeto) throws Exception {
+    Itinerario itinerario = iitinerarioFactory.Create(
+      objeto.getKey(),
+      objeto.getCiudadOrigen(),
+      objeto.getCiudadDestino(),
+      objeto.getFechaArribe(),
+      objeto.getFechaSalida()
+    );
+
+    for (var item : objeto.getAsiento()) {
+      itinerario.AgregarAsientos(item.getKey(), item.getNumeroAsiento(), item.getDisponibilidad());
+    }
+
+    iitinerarioRepository.Create(itinerario);
+    _unitOfWork.commit();
+
+    System.out.println("Se Agrego el itinerario y los asientos");
   }
 }

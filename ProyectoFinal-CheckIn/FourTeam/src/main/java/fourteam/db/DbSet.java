@@ -71,29 +71,29 @@ public class DbSet<T> {
     return _name;
   }
 
-  public void Update(T obj, BooleanFunction<T> fun) {
+  public void Update(T obj, BooleanFunction<T> fun) throws Exception {
     addEvents(obj);
     _context.Update(obj, fun, this);
   }
 
-  public void Delete(BooleanFunction<T> fun) {
+  public void Delete(BooleanFunction<T> fun) throws Exception {
     _context.Delete(fun, this);
   }
 
-  public void Add(T obj) {
+  public void Add(T obj) throws Exception {
     addEvents(obj);
     _context.Add(obj, this);
   }
 
-  public T Single(BooleanFunction<T> fun) {
+  public T Single(BooleanFunction<T> fun) throws Exception {
     return (T) _context.Single(fun, this);
   }
 
-  public List<T> All() {
+  public List<T> All() throws Exception {
     return (List<T>) _context.All(this);
   }
 
-  public List<T> Filter(BooleanFunction<T> fun) {
+  public List<T> Filter(BooleanFunction<T> fun) throws Exception {
     return (List<T>) _context.Filter(fun, this);
   }
 

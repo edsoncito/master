@@ -3,6 +3,7 @@ package fourteam.massTransit;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import fourteam.console.console;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -25,13 +26,21 @@ public class RabbitMq {
 
   public void newConnection() throws IOException, TimeoutException {
     ConnectionFactory factory = new ConnectionFactory();
+    console.warning(
+      "[",
+      this.getClass().getSimpleName(),
+      "]",
+      "Trying to connect with host=" + this.Host,
+      "user=" + this.User,
+      "password=" + this.Password
+    );
     factory.setHost(this.Host);
     factory.setUsername(this.User);
     factory.setPassword(this.Password);
 
     this.connection = factory.newConnection();
     this.channel = connection.createChannel();
-    System.out.println("Conexion exitosa a rabbit");
+    console.succes("[", this.getClass().getSimpleName(), "]", "Connection succesfull!");
   }
 
   public interface ReceiveEndpoint<E> {

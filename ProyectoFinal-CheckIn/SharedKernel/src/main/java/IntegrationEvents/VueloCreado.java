@@ -1,14 +1,43 @@
 package IntegrationEvents;
 
 import core.IntegrationEvent;
+import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class VueloCreado extends IntegrationEvent {
 
   private String keyVuelo;
+  private String nroVuelo;
   private String ciudadOrigen;
   private String ciudadDestino;
   private List<Asiento> asiento;
+  private Date fechaSalida;
+  private Date fechaArribe;
+
+  public String getNroVuelo() {
+    return this.nroVuelo;
+  }
+
+  public void setNroVuelo(String nroVuelo) {
+    this.nroVuelo = nroVuelo;
+  }
+
+  public Date getFechaSalida() {
+    return this.fechaSalida;
+  }
+
+  public void setFechaSalida(Date fechaSalida) {
+    this.fechaSalida = fechaSalida;
+  }
+
+  public Date getFechaArribe() {
+    return this.fechaArribe;
+  }
+
+  public void setFechaArribe(Date fechaArribe) {
+    this.fechaArribe = fechaArribe;
+  }
 
   public String getKeyVuelo() {
     return this.keyVuelo;
@@ -44,23 +73,32 @@ public class VueloCreado extends IntegrationEvent {
 
   public class Asiento {
 
-    private String numero;
+    private UUID key;
+    private String numeroAsiento;
     private int disponibilidad;
 
-    public void setNumero(String numero) {
-      this.numero = numero;
+    public UUID getKey() {
+      return this.key;
     }
 
-    public String getNumero() {
-      return numero;
+    public void setKey(UUID key) {
+      this.key = key;
+    }
+
+    public String getNumeroAsiento() {
+      return this.numeroAsiento;
+    }
+
+    public void setNumeroAsiento(String numeroAsiento) {
+      this.numeroAsiento = numeroAsiento;
+    }
+
+    public int getDisponibilidad() {
+      return this.disponibilidad;
     }
 
     public void setDisponibilidad(int disponibilidad) {
       this.disponibilidad = disponibilidad;
-    }
-
-    public int getDisponibilidad() {
-      return disponibilidad;
     }
   }
 }

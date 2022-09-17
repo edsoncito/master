@@ -5,10 +5,10 @@ import Repositories.IUnitOfWork;
 import Repositories.IcheckInRepository;
 import Services.CheckInServices;
 import factories.ICheckInFactory;
-import fourteam.http.Exception.HttpException;
 import fourteam.mediator.RequestHandler;
+import java.util.UUID;
 
-public class CrearCheckInHandler implements RequestHandler<CrearCheckInCommand, CheckIn> {
+public class CrearCheckInHandler implements RequestHandler<CrearCheckInCommand, UUID> {
 
   private IcheckInRepository CheckInRepository;
   private ICheckInFactory CheckInFactory;
@@ -28,15 +28,17 @@ public class CrearCheckInHandler implements RequestHandler<CrearCheckInCommand, 
   }
 
   @Override
-  public CheckIn handle(CrearCheckInCommand request) throws HttpException {
+  public UUID handle(CrearCheckInCommand request) throws Exception {
     String nroCheckIn = inService.GenerarNroPedidoAsync();
     CheckIn objCheckIn = CheckInFactory.Create(
       nroCheckIn,
       request.checkInDto.getEstadoPaciente(),
       request.checkInDto.getDescripcion(),
-      request.checkInDto.getAsiento()
+      request.checkInDto.getNumeroAsiento(),
+      request.checkInDto.getKeyVuelo(),
+      request.checkInDto.getKeyPasajero()
     );
-    for (var item : request.Equipaje) {
+    for (var item : request.checkInDto.EquipajeDto) {
       objCheckIn.AgregarItem(
         item.getPesoEquipaje(),
         item.getNumeroEtiqueta(),
@@ -46,6 +48,6 @@ public class CrearCheckInHandler implements RequestHandler<CrearCheckInCommand, 
     objCheckIn.checkInCompletado();
     CheckInRepository.Create(objCheckIn);
     _unitOfWork.commit();
-    return objCheckIn;
+    return objCheckIn.key;
   }
 }

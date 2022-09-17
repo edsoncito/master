@@ -1,15 +1,16 @@
 package fourteam.db;
 
+import fourteam.db.Exception.DataBaseException;
 import java.util.List;
 
 public interface IDbContext extends IDbSet {
-  public void Transaction();
+  public void Transaction() throws DataBaseException;
 
-  public void Commit();
+  public void Commit() throws DataBaseException;
 
-  public void Rollback();
+  public void Rollback() throws DataBaseException;
 
-  public boolean isConnected();
+  public boolean isConnected() throws DataBaseException;
 
-  public void onModelCreating(List<DbSet> sets);
+  public void onModelCreating(List<DbSet> sets) throws DataBaseException;
 }

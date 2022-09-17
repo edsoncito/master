@@ -5,7 +5,7 @@ import Modal.CheckIn;
 import fourteam.mediator.Request;
 import java.util.UUID;
 
-public class DeleteCheckInCommand implements Request<CheckIn> {
+public class DeleteCheckInCommand implements Request<UUID> {
 
   CheckInDto checkInDto;
 

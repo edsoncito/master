@@ -4,7 +4,6 @@ import EF.Contexts.IWriteDbContext;
 import Repositories.IUnitOfWork;
 import core.ConfirmedDomainEvent;
 import core.DomainEvent;
-import fourteam.http.Exception.HttpException;
 import fourteam.mediator.Mediator;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class UnitOfWork implements IUnitOfWork {
   }
 
   @Override
-  public void commit() throws HttpException {
+  public void commit() throws Exception {
     List<Object> events = _context.getDomainEvents();
     for (Object domainEvent : events) {
       DomainEvent event = (DomainEvent) domainEvent;
