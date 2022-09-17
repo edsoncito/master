@@ -1,12 +1,15 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class Entity<TId> {
 
   public TId key;
-  public List<DomainEvent> domainEvents;
+  public transient List<DomainEvent> domainEvents;
+
+  // private Collection<DomainEvent> DomainEvents;
 
   public List<DomainEvent> getDomainEvents() {
     return domainEvents;

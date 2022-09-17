@@ -41,41 +41,21 @@ public class IMediator implements Mediator {
   }
 
   @Override
-  public <T, E> Response<E> send(Request<T> request) throws HttpException {
+  public <T, E> Response<E> send(Request<T> request) throws Exception {
     Response<E> response = new Response<>();
     MediatorPlanRequest<T, E> plan;
-    try {
-      plan = new MediatorPlanRequest<>(RequestHandler.class, "handle", request.getClass(), this);
-      response.data = plan.invoke(request);
-    } catch (
-      NoSuchMethodException
-      | SecurityException
-      | ClassNotFoundException
-      | IllegalAccessException
-      | IllegalArgumentException
-      | InvocationTargetException e
-    ) {
-      if (e.getCause() instanceof HttpException) {
-        throw (HttpException) e.getCause();
-      }
-      throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
-    } catch (HttpException e) {
-      throw e;
-    }
+    plan = new MediatorPlanRequest<>(RequestHandler.class, "handle", request.getClass(), this);
+    response.data = plan.invoke(request);
     return response;
   }
 
   @Override
-  public Response<Void> notify(Notification notification) {
+  public Response<Void> notify(Notification notification) throws Exception {
     Response<Void> response = new Response<>();
     MediatorPlanNotify plan;
-    try {
-      plan =
-        new MediatorPlanNotify(NotificationHandler.class, "handle", notification.getClass(), this);
-      plan.invoke(notification);
-    } catch (Exception e) {
-      response.exception = (Exception) e;
-    }
+    plan =
+      new MediatorPlanNotify(NotificationHandler.class, "handle", notification.getClass(), this);
+    plan.invoke(notification);
     return response;
   }
 }

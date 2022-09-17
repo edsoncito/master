@@ -1,3 +1,6 @@
+import fourteam.config.Config;
+import fourteam.console.console;
+
 public class FourTeam {
 
   public static Class[] classes = {
@@ -19,12 +22,15 @@ public class FourTeam {
   };
 
   public static void AddFourTeam() {
-    int i = 0;
-    int l = classes.length;
+    console.succes("-------------------------------------------------------------------------");
+    console.succes("------------------------    FourTeam  Service    ------------------------");
+    console.succes("-------------------------------------------------------------------------");
+
+    Config.load();
+    console.warning("[", FourTeam.class.getSimpleName(), "]", "Trying to load dependencies");
     for (Class clas : classes) {
-      i++;
-      System.out.print("Add kerel class: (" + i + "/" + l + ")\r");
+      System.out.print(clas.getName() + "\r");
     }
-    System.out.println("\n");
+    console.succes("[", FourTeam.class.getSimpleName(), "]", "Dependecies load succesfull!");
   }
 }

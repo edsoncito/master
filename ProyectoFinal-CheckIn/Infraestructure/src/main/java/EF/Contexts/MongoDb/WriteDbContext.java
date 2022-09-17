@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import fourteam.JSON;
 import fourteam.db.DbSet;
+import fourteam.db.Exception.DataBaseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,12 +24,12 @@ public class WriteDbContext extends IWriteDbContext {
   private final String DB_HOST = "localhost";
   private final int DB_PORT = 27017;
 
-  public WriteDbContext() {
+  public WriteDbContext() throws DataBaseException {
     super(WriteDbContext.class);
   }
 
   @Override
-  public void onModelCreating(List<DbSet> sets) {
+  public void onModelCreating(List<DbSet> sets) throws DataBaseException {
     Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
     mongoLogger.setLevel(Level.SEVERE);
     MongoClientURI uri = new MongoClientURI(
@@ -44,22 +45,22 @@ public class WriteDbContext extends IWriteDbContext {
   }
 
   @Override
-  public boolean isConnected() {
+  public boolean isConnected() throws DataBaseException {
     return this.db != null;
   }
 
   @Override
-  public void Commit() {
+  public void Commit() throws DataBaseException {
     System.out.println("WriteDbContext::Commit Not implemented");
   }
 
   @Override
-  public void Transaction() {
+  public void Transaction() throws DataBaseException {
     System.out.println("WriteDbContext::Transaction Not implemented");
   }
 
   @Override
-  public void Rollback() {
+  public void Rollback() throws DataBaseException {
     System.out.println("WriteDbContext::Rollback Not implemented");
   }
 
@@ -126,7 +127,7 @@ public class WriteDbContext extends IWriteDbContext {
   }
 
   @Override
-  public List All(DbSet dbSet) {
+  public List All(DbSet dbSet) throws DataBaseException {
     ArrayList<Object> list = new ArrayList<>();
     this.db.getCollection(dbSet.getName())
       .find()

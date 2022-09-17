@@ -11,18 +11,12 @@ public class CheckInDto {
   public Date HoraCheckIn;
   public Boolean EstadoPaciente;
   public String Descripcion;
-  public int Asiento;
-  public List<BaggageDto> EquipajeDto;
+  public int NumeroAsiento;
+  public UUID KeyVuelo;
+  public UUID KeyPasajero;
+  public List<EquipajeDto> EquipajeDto;
 
   public CheckInDto() {}
-
-  public List<BaggageDto> getEquipajeDto() {
-    return EquipajeDto;
-  }
-
-  public void setEquipajeDto(List<BaggageDto> equipajeDto) {
-    EquipajeDto = equipajeDto;
-  }
 
   public UUID getKey() {
     return this.Key;
@@ -48,6 +42,10 @@ public class CheckInDto {
     this.HoraCheckIn = HoraCheckIn;
   }
 
+  public Boolean isEstadoPaciente() {
+    return this.EstadoPaciente;
+  }
+
   public Boolean getEstadoPaciente() {
     return this.EstadoPaciente;
   }
@@ -60,15 +58,39 @@ public class CheckInDto {
     return this.Descripcion;
   }
 
-  public void setDescripcion(String descripcion) {
-    this.Descripcion = descripcion;
+  public void setDescripcion(String Descripcion) {
+    this.Descripcion = Descripcion;
   }
 
-  public int getAsiento() {
-    return this.Asiento;
+  public int getNumeroAsiento() {
+    return this.NumeroAsiento;
   }
 
-  public void setAsiento(int Asiento) {
-    this.Asiento = Asiento;
+  public void setNumeroAsiento(int NumeroAsiento) {
+    this.NumeroAsiento = NumeroAsiento;
+  }
+
+  public UUID getKeyVuelo() {
+    return this.KeyVuelo;
+  }
+
+  public void setKeyVuelo(UUID KeyVuelo) {
+    this.KeyVuelo = KeyVuelo;
+  }
+
+  public UUID getKeyPasajero() {
+    return this.KeyPasajero;
+  }
+
+  public void setKeyPasajero(UUID KeyPasajero) {
+    this.KeyPasajero = KeyPasajero;
+  }
+
+  public List<EquipajeDto> getEquipajeDto() {
+    return this.EquipajeDto;
+  }
+
+  public void setEquipajeDto(List<EquipajeDto> EquipajeDto) {
+    this.EquipajeDto = EquipajeDto;
   }
 }

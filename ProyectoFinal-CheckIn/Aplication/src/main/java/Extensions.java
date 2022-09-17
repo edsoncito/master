@@ -1,6 +1,7 @@
 import UseCases.Command.CheckIn.Create.CrearCheckInHandler;
 import UseCases.Command.CheckIn.Delete.DeleteCheckInHandler;
 import UseCases.Command.CheckIn.Edit.EditCheckInHandler;
+import UseCases.DomainEventHandler.PublishIntegrationEventWhenCheckInCreadoHandler;
 import UseCases.Queries.GetAll.GetCheckInAllHandler;
 import UseCases.Queries.GetById.GetCheckInByIdHandler;
 import factories.CheckInFactory;
@@ -16,6 +17,8 @@ public class Extensions {
     IMediator.registerHandler(DeleteCheckInHandler.class);
     IMediator.registerHandler(CrearCheckInHandler.class);
     IMediator.registerHandler(GetCheckInAllHandler.class);
+    IMediator.registerHandler(PublishIntegrationEventWhenCheckInCreadoHandler.class);
     IServiceCollection.AddTransient(ICheckInFactory.class, CheckInFactory.class);
+    Domain.addDomain();
   }
 }

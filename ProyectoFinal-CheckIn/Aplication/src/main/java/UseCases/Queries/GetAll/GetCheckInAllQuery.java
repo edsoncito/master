@@ -1,9 +1,9 @@
 package UseCases.Queries.GetAll;
 
-import Modal.CheckIn;
+import Dto.CheckInDto;
 import fourteam.mediator.Request;
 
-public class GetCheckInAllQuery implements Request<CheckIn> {
+public class GetCheckInAllQuery implements Request<CheckInDto> {
 
   public GetCheckInAllQuery() {}
 }

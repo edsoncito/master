@@ -11,39 +11,35 @@ public class CheckIn extends AggregateRoot<UUID> {
 
   public String CodigoSeguridad;
   public Date HoraCheckIn;
-  public int Asiento;
   public Boolean EstadoPaciente;
   public String Descripcion;
-  public List<Baggage> equipaje;
-
-  // private List<Seat> Seats ;
+  public int NumeroAsiento;
+  public List<Equipaje> equipaje;
+  public UUID KeyVuelo;
+  public UUID KeyPasajero;
 
   public CheckIn() {}
 
-  public CheckIn(String codigoSeguridad, Boolean estadoPaciente, String descripcion, int asiento) {
+  public CheckIn(
+    String codigoSeguridad,
+    Boolean estadoPaciente,
+    String descripcion,
+    int numeroAsiento,
+    UUID keyVuelo,
+    UUID keyPasajero
+  ) {
     key = UUID.randomUUID();
     CodigoSeguridad = codigoSeguridad;
     EstadoPaciente = estadoPaciente;
     Descripcion = descripcion;
-    Asiento = asiento;
-    equipaje = new ArrayList<Baggage>();
+    NumeroAsiento = numeroAsiento;
+    KeyVuelo = keyVuelo;
+    KeyPasajero = keyPasajero;
+    equipaje = new ArrayList<Equipaje>();
   }
 
   public void AgregarItem(Double PesoEquipaje, String NumeroEtiqueta, String descripcion) {
-    // var detalleEquipaje = Equipaje.First(x => x.ProductoId == productoId);
-    // Equipaje equipaje;
-    // if (equipaje is null)
-    // {
-    // detallePedido = new DetallePedido(productoId, instrucciones, cantidad,
-    // precio);
-    // _detalle.Add(detallePedido);
-    // }
-    // else
-    // {
-    // detallePedido.ModificarPedido(cantidad, precio);
-    // }
-
-    Baggage equipajes = new Baggage(PesoEquipaje, NumeroEtiqueta, descripcion);
+    Equipaje equipajes = new Equipaje(PesoEquipaje, NumeroEtiqueta, descripcion);
     equipaje.add(equipajes);
   }
 
@@ -52,11 +48,39 @@ public class CheckIn extends AggregateRoot<UUID> {
     addDomainEvent(event);
   }
 
-  public List<Baggage> getEquipaje() {
+  public Boolean isEstadoPaciente() {
+    return this.EstadoPaciente;
+  }
+
+  public int getNumeroAsiento() {
+    return this.NumeroAsiento;
+  }
+
+  public void setNumeroAsiento(int NumeroAsiento) {
+    this.NumeroAsiento = NumeroAsiento;
+  }
+
+  public UUID getKeyVuelo() {
+    return this.KeyVuelo;
+  }
+
+  public void setKeyVuelo(UUID KeyVuelo) {
+    this.KeyVuelo = KeyVuelo;
+  }
+
+  public UUID getKeyPasajero() {
+    return this.KeyPasajero;
+  }
+
+  public void setKeyPasajero(UUID KeyPasajero) {
+    this.KeyPasajero = KeyPasajero;
+  }
+
+  public List<Equipaje> getEquipaje() {
     return equipaje;
   }
 
-  public void setEquipaje(List<Baggage> equipaje1) {
+  public void setEquipaje(List<Equipaje> equipaje1) {
     equipaje = equipaje1;
   }
 
@@ -93,10 +117,10 @@ public class CheckIn extends AggregateRoot<UUID> {
   }
 
   public int getAsiento() {
-    return this.Asiento;
+    return this.NumeroAsiento;
   }
 
   public void setAsiento(int Asiento) {
-    this.Asiento = Asiento;
+    this.NumeroAsiento = Asiento;
   }
 }

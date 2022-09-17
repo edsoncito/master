@@ -1,5 +1,6 @@
 package fourteam.db;
 
+import fourteam.db.Exception.DataBaseException;
 import fourteam.mediator.Notification;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public abstract class DbContext implements IDbContext {
   private List<DbSet> _dbSets;
   private Class _dbContextClass;
 
-  public DbContext(Class dbContextClass) {
+  public DbContext(Class dbContextClass) throws DataBaseException {
     _dbContextClass = dbContextClass;
     _dbSets = new ArrayList<>();
     this.instanceDbSet();

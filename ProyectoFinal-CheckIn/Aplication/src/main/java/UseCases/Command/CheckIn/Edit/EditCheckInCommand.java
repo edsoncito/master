@@ -5,7 +5,7 @@ import Modal.CheckIn;
 import fourteam.mediator.Request;
 import java.util.UUID;
 
-public class EditCheckInCommand implements Request<CheckIn> {
+public class EditCheckInCommand implements Request<UUID> {
 
   public CheckInDto checkInDto;
 

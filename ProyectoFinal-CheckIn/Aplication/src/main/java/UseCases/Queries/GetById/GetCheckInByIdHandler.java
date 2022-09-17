@@ -1,7 +1,7 @@
 package UseCases.Queries.GetById;
 
-import Dto.BaggageDto;
 import Dto.CheckInDto;
+import Dto.EquipajeDto;
 import Modal.CheckIn;
 import Repositories.IcheckInRepository;
 import fourteam.mediator.RequestHandler;
@@ -26,10 +26,12 @@ public class GetCheckInByIdHandler implements RequestHandler<GetCheckInByIdQuery
       }
       checkInDto.setEstadoPaciente(checkIn.getEstadoPaciente());
       checkInDto.setDescripcion(checkIn.getDescripcion());
-      checkInDto.setAsiento(checkIn.getAsiento());
-      List<BaggageDto> lista = new ArrayList<>();
+      checkInDto.setNumeroAsiento(checkIn.getAsiento());
+      checkInDto.setKeyVuelo(checkIn.getKeyVuelo());
+      checkInDto.setKeyPasajero(checkIn.getKeyPasajero());
+      List<EquipajeDto> lista = new ArrayList<>();
       for (var item : checkIn.getEquipaje()) {
-        BaggageDto equipajeDto = new BaggageDto();
+        EquipajeDto equipajeDto = new EquipajeDto();
         equipajeDto.setPesoEquipaje(item.getPesoEquipaje());
         equipajeDto.setNumeroEtiqueta(item.getNumeroEtiquta());
         equipajeDto.setDescripcion(item.getDescripcion());

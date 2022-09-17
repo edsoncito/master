@@ -44,8 +44,7 @@ public class MediatorPlanRequest<T, E> {
     throw new ClassNotFoundException("Handler not found. Did you forget to register this?");
   }
 
-  public E invoke(Request<T> request)
-    throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, HttpException {
+  public E invoke(Request<T> request) throws Exception {
     return (E) handleMethod.invoke(instance, request);
   }
 }

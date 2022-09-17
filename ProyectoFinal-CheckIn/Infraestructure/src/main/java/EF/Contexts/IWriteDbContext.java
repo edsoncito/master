@@ -1,16 +1,17 @@
 package EF.Contexts;
 
-import Modal.Baggage;
 import Modal.CheckIn;
+import Modal.Equipaje;
 import fourteam.db.DbContext;
 import fourteam.db.DbSet;
+import fourteam.db.Exception.DataBaseException;
 
 public abstract class IWriteDbContext extends DbContext {
 
-  public IWriteDbContext(Class dbContextClass) {
+  public IWriteDbContext(Class dbContextClass) throws DataBaseException {
     super(dbContextClass);
   }
 
   public DbSet<CheckIn> checkIn;
-  public DbSet<Baggage> baggage;
+  public DbSet<Equipaje> equipaje;
 }

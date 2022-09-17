@@ -8,9 +8,9 @@ import java.util.UUID;
 public interface IcheckInRepository extends IRepository<CheckIn, UUID> {
   // public void UpdateAsync(CheckIn obj);
 
-  public List<CheckIn> GetAll();
+  public List<CheckIn> GetAll() throws Exception;
 
-  public CheckIn Delete(CheckIn checkIn);
+  public CheckIn Delete(CheckIn checkIn) throws Exception;
 
-  public CheckIn Update(CheckIn checkIn);
+  public CheckIn Update(CheckIn checkIn) throws Exception;
 }
